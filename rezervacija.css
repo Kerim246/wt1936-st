@@ -204,6 +204,9 @@ button[type = button]{
     button[type = submit]{
         margin-left:0px;
     }
+    .meni a {
+        display:block;
+    }
 
 }
 
