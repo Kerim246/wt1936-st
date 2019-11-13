@@ -1,0 +1,61 @@
+.logo {
+  height:10px;
+  margin-top:-10px;
+  width:420px;
+  margin-left: 42%;
+  top:0%;
+  position:absolute;
+}
+
+.meni a {
+  text-align: center;
+  font-size:17px;
+  margin-left: 50px;
+}
+#nepodvucen{
+  text-decoration:none;
+}
+
+.meni {
+  padding:15px;
+  background-color:lightblue;
+  margin-top: -5px;
+  margin-top: 35px;
+  padding-top:60px;
+  padding-left:28%;
+} 
+
+.grid-item img {
+  float:left;
+  width: 32%;
+  height:200px;
+  padding: 5px;
+}
+body {
+  margin-left:auto;
+  margin-right:auto;
+  width:90%;
+  height:100%;
+}
+
+@media screen and (max-width:600px){
+  .grid {
+    max-width:100%;
+  }
+  .grid img {
+    max-width:80%;
+    max-height:80%;
+    display:flex;
+  }
+  .grid-item img {
+    flex:100%;
+    max-width:80%;
+    max-height:80%
+  }
+  .grid-item {
+    flex:100%;
+    max-width:100%;
+  }
+  
+}
+

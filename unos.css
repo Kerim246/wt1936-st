@@ -1,0 +1,98 @@
+.meni {
+    padding:15px;
+    background-color:lightblue;
+    margin-top: -5px;
+    margin-top: 35px;
+    padding-top:60px;
+    padding-left:28%;
+} 
+.meni #nepodvucen {
+    text-decoration:none;
+}
+
+.meni a {
+  text-align: center;
+  font-size:17px;
+  margin-left: 50px;
+}
+.logo {
+    height:50%;
+    margin-top:-10px;
+    height:25px;
+    width:30px;
+    margin-left: 48%;
+    top:0%;
+    position:absolute;
+    padding-top:3px;
+    padding-bottom:3px;
+}
+.forma label {
+    font-size:20px;
+}
+input {
+    padding-right:10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+input[type=text]{
+    margin-left: 92px;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+input[type=type]{
+    margin-left:92px;
+    margin-top: 10px;
+}
+input[type=submit]{
+    margin-left:100px;
+}
+#sprat {
+    margin-left:98px;
+}
+input[type=number]{
+    margin-left:50px;
+    margin-bottom: 5px;
+}
+
+.meni #sala {
+    text-decoration:none;
+}
+form label {
+    width:20px;
+}
+
+.forma {
+    width:100%;
+    background-color: lightblue;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+.forma label {
+    width:50%;
+    margin-left:  auto;
+    margin-left: 450px;
+}
+body {
+    background-color: white;
+}
+@media screen and (max-width:600px){
+    .forma input {
+        display:block;
+        margin-left:auto;
+    }
+    .forma label {
+        display:block;
+        margin-left:auto;
+    }
+    #sprat {
+        display:block;
+        margin-left:auto;
+    }
+    .meni li {
+        display:block;
+        margin-left:auto;
+    }
+}
+
+
