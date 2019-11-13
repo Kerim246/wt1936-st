@@ -12,6 +12,9 @@ td {
 .headerRedni  {
     background-color: lightgrey;
     width:30px;
+    border-style:solid;
+    border-width:0.5px;
+    border-collapse: collapse;
 }
 
 .drugi_dio {
@@ -31,6 +34,9 @@ td {
     table-layout:fixed;
     height:35px;
     text-align:center;
+    border-style:solid;
+    border-width:0.5px;
+    border-collapse: collapse;
 }
 .logo {
     height:50%;
@@ -67,6 +73,7 @@ td {
 }
 table {
     border-style:solid;
+    border-width:0.5px;
     border-collapse: collapse;
     width:50%;
     table-layout: fixed ;
@@ -83,6 +90,9 @@ table {
     background-color:#A9A9A9;
     height:45px;
     text-align:center;
+    border-style:solid;
+    border-width:0.5px;
+    border-collapse: collapse;
 }
 #Van {
     text-align:right;
@@ -99,9 +109,6 @@ th:first-child{
 }
 .redniBr {
     vertical-align: bottom;
-}
-.okvir {
-    display:block;
 }
 
 @media screen and (max-width: 600px) {
