@@ -91,24 +91,20 @@ td {
 
 }
 
-tr {
-  word-spacing: 1%;
-}
-
 .zauzeta {
   vertical-align: top;
   border: 1px solid blue;
   padding: 10px;
   text-align: center;
   height: 35px;
-  background:linear-gradient(0deg,red 0, red, blue 35%, #3d699c 41%, #ffffff 41%, #ffffff 100%);    
+  background:linear-gradient(0deg, #991717 0, #991717 35%, #3d699c 35%, #3d699c 41%, #ffffff 41%, #ffffff 100%);  
 }
 
 .slobodna {
   vertical-align: top;
   padding: 10px;
   border: 1px solid blue;
-  background:linear-gradient(0deg, green 0, green 35%, green 35%, #3d699c 41%, #ffffff 41%, #ffffff 100%);    
+  background:linear-gradient(0deg, #066f07 0, #066f07 35%, #3d699c 35%, #3d699c 41%, #ffffff 41%, #ffffff 100%); 
   text-align: center;
   height: 35px; 
 }
@@ -130,18 +126,17 @@ body {
   td {
     display: none;
   }
-
-  tr[id=Dani] > td {
-    display: block;
-    margin-top: 1%;
-  }
-
   .slobodna {
     display: none;
   }
 
   .zauzeta {
     display: none;
+  }
+
+  tr[id=Dani] > td {
+    display: block;
+    margin-top: 1%;
   }
 
   th {
