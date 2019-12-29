@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Rezervacija</title>
+	<link rel="stylesheet" href="rezervacija.css">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<div class="logo">
+		<img src="logo.png" alt="logo">
+	</div>
+	<div class="meni">
+		<a href="pocetna.html">Pocetna</a>
+		<a href="sale.html">Sale</a>
+		<a href="unos.html">Unos</a>
+		<a id="nepodvucen" href="#Rezervacije">Rezervacije</a>
+		<a href="Osobe">Osobe</a>
+	</div>
+
+	<div class="sadrzaj">
+
+		<label>Sale</label>
+		<select onchange="osvjeziSale();" id="sale">
+			<option value="0-01">0-01</option>
+			<option value="0-02">0-02</option>
+			<option value="0-03">0-03</option>
+			<option value="0-04">0-04</option>
+			<option value="0-05">0-05</option>
+			<option value="0-06">0-06</option>
+			<option value="0-07">0-07</option>
+			<option value="0-08">0-08</option>
+			<option value="0-09">0-09</option>
+			<option value="1-01">1-01</option>
+			<option value="1-02">1-02</option>
+			<option value="1-03">1-03</option>
+			<option value="1-04">1-04</option>
+			<option value="1-05">1-05</option>
+			<option value="1-06">1-06</option>
+			<option value="1-07">1-07</option>
+			<option value="1-08">1-08</option>
+			<option value="1-09">1-09</option>
+			<option value="VA1">VA1</option>
+			<option value="VA2">VA2</option>
+			<option value="MA">MA</option>
+			<option value="EE1">EE1</option>
+			<option value="EE2">EE2</option>
+
+		</select>
+		<label>Periodičnost</label>
+		<input type="checkbox" name="rezervacija" value="DA" id="periodicnost">
+		<label>Početak</label>
+		<input onchange="osvjeziSale()" type="time" name="pocetak" id="pocetak">
+		<label>Kraj</label>
+		<input onchange="osvjeziSale()" type="time" name="kraj" id="kraj">
+
+		<table id="tabela">
+			<caption>April</caption>
+			<tr id="Dani">
+				<td>PON</td>
+				<td>UTO</td>
+				<td>SRI</td>
+				<td>ČET</td>
+				<td>PET</td>
+				<td>SUB</td>
+				<td>NED</td>
+			</tr>
+		</table>
+		<a href="#" class="prethodni" id="prethodni">Prethodni</a>
+		<a href="#" class="sljedeci" id="sljedeci">Sljedeći</a>
+	</div>
+	<script type="module" src="kalendar.js">
+
+	</script>
+</body>
+
+</html>

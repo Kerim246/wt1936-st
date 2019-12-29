@@ -1,0 +1,133 @@
+.slobodnaSala {
+    background-color: green;
+}
+
+.zauzetaSala{
+    background-color: red;
+}
+
+td {
+    background-color: white;
+}
+.headerRedni  {
+    background-color: lightgrey;
+    border-style:solid;
+    border-width:0.5px;
+}
+
+.drugi_dio {
+    margin-top:5px;
+    height: 600px;
+    background-color:lightblue;
+    display:block;
+}
+.sadrzaj {
+    padding: 5px;
+    margin-left:40px;
+    padding-top: 25px;
+    padding-right: 500px;
+    display:block;
+}
+.sala {
+    height:35px;
+    text-align:center;
+    border-style:solid;
+    border-width:0.5px;
+    border-collapse: collapse;
+}
+.logo {
+    height:50%;
+    margin-top:-10px;
+    height:25px;
+    width:30px;
+    margin-left: 48%;
+    top:0%;
+    position:absolute;
+    padding-top:3px;
+    padding-bottom:3px;
+}
+
+.meni {
+    padding:15px;
+    background-color:lightblue;
+    margin-top: -5px;
+    margin-top: 35px;
+    padding-top:60px;
+    padding-left:28%;  
+} 
+.meni #nepodvucen {
+    text-decoration:none;
+}
+
+.meni a {
+  text-align: center;
+  font-size:17px;
+  margin-left: 50px;
+}
+#sala108{
+    background-color:lightblue;
+}
+table {
+    border-style:solid;
+    border-width:0.5px;
+    border-collapse: collapse;
+    width:50%;
+    margin: 0 auto;
+    margin-left:400px;
+}
+
+.headerSprat {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width:14%;
+    background-color:#A9A9A9;
+    height:45px;
+    text-align:center;
+    border-style:solid;
+    border-width:0.5px;
+    border-collapse: collapse;
+}
+#Van {
+    text-align:right;
+}
+
+.prva_celija {
+    border-collapse: collapse;
+    border-top:hidden;
+    border-left:hidden;
+}
+
+th:first-child{
+    width:15px;
+}
+.redniBr {
+    vertical-align: bottom;
+}
+
+@media screen and (max-width: 600px) {
+    tr th:nth-child(1),tr td:nth-child(1){
+
+        display:none;
+    }
+    #prvi_red {
+        display:none;
+    }
+    .meni a {
+        display:block;
+    }
+
+    table {
+        margin-left: 20px;
+        margin-right:20px;
+        min-width:10%;
+    }
+    .drugi_dio {
+        min-width:10%;
+    }
+    .sadrzaj {
+        min-width:80%;
+    }
+    
+}

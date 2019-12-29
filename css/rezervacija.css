@@ -1,0 +1,155 @@
+.sadrzaj {
+  background-color: lightblue;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgreen;
+  text-align:center;
+}
+
+.meni {
+  padding:15px;
+  background-color:lightblue;
+  margin-top: -5px;
+
+  padding-top:60px;
+  padding-left:28%;
+} 
+.meni #nepodvucen {
+  text-decoration:none;
+}
+
+.prethodni, .sljedeci {
+  padding: 1%;
+  border: 2px solid #3d699c;
+  text-decoration: none;
+  color: black;
+}
+
+.meni a {
+text-align: center;
+font-size:17px;
+margin-left: 50px;
+}
+
+.meni {
+  margin-bottom: 2%;
+}
+
+.logo {
+  height:50%;
+  height:25px;
+  width:30px;
+  margin-left: 46%;
+  top:0%;
+  position:absolute;
+  padding-top:3px;
+  padding-bottom:3px;
+}
+
+.sadrzaj {
+  float: left;
+  padding: 2%;
+}
+
+.prethodni {
+  float: left;
+  margin-left: 25%;
+  border-color: blue;
+}
+
+.sljedeci {
+  float: right;
+  margin-right: 25%;
+  border-color: blue;
+}
+
+#tabela {
+  empty-cells: hide;
+  background-color:lightblue;
+  margin-bottom: 5%;
+  margin-right: 18%;
+  margin-left: 25%;
+  table-layout: fixed;
+  width: 50%;
+  border: 2px solid blue;
+  padding: 2%;
+}
+
+table caption {
+  display: inline-block; 
+  font-weight: bold;
+  margin-bottom: 10%;
+  float: left;
+}
+
+table {
+  margin-top: 1%;
+}
+
+td {
+  border: 2px solid #3d699c;
+
+}
+
+tr {
+  word-spacing: 1%;
+}
+
+.zauzeta {
+  vertical-align: top;
+  border: 1px solid blue;
+  padding: 10px;
+  text-align: center;
+  height: 35px;
+  background:linear-gradient(0deg, #991717 0, #991717 35%, #3d699c 35%, #3d699c 41%, #ffffff 41%, #ffffff 100%);    
+}
+
+.slobodna {
+  vertical-align: top;
+  padding: 10px;
+  border: 1px solid blue;
+  text-align: center;
+  height: 35px;
+  background:linear-gradient(0deg, #066f07 0, #066f07 35%, #3d699c 35%, #3d699c 41%, #ffffff 41%, #ffffff 100%);    
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+  word-spacing: 4px;
+  padding-top: 40px;
+  margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+  .meni ul li {
+    padding-right: 7%;
+    display: block;
+  }
+  
+  td {
+    display: none;
+  }
+
+  tr[id=Dani] > td {
+    display: block;
+    margin-top: 1%;
+  }
+
+  .slobodna {
+    display: none;
+  }
+
+  .zauzeta {
+    display: none;
+  }
+
+  th {
+    display: none;
+  }
+
+  .dani td {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}
