@@ -191,7 +191,6 @@ app.post('/kreirajRezervaciju', function(req, res) {
 		let datum = '';
 		if (rezervacija['periodicna']) {
 			let dan = rezervacija['dan'];
-			dan++;
 			datum = 'dan ' + dan + ' i semestar ' + rezervacija['semestar'];
 		} else {
 			datum = 'datum ' + rezervacija['datum'].split(".").join("/");
