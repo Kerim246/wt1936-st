@@ -4,6 +4,14 @@ const fs = require('fs');
 const app = express();
 const path = require('path');
 const url = require('url');
+const Sequelize = require('sequelize');
+const connection = new Sequelize('dbwt19','root','root',{
+    dialect: 'mysql',
+    define: {
+        timestamps: false
+      },
+      logging: false
+});
 const images = [
 	'ajfelov.jpg',
 	'aurora.jpg',
@@ -16,6 +24,14 @@ const images = [
 	'snijeg.jpg',
 	'vuk.jpg'
 ];
+const db = {};
+
+
+db.Sequelize = Sequelize;
+db.connection = connection;
+
+db.osoblje = connection.import(__dirname+'/osoblje.js');
+db.termin = connection.import(__dirname+'/termin.js');
 
 app.use(bodyParser.json());
 app.use(
@@ -101,6 +117,7 @@ function ValidnoVrijeme(pocetak, kraj) {
 function vratiSemestar(mjesec){
 	if ( mjesec >= 2 && mjesec <= 6) return 'ljetni';
 	if ( (mjesec >= 10 || mjesec === 1)) return 'zimski';
+	
 }
 
 function daLiJeTerminSlobodan(rezervacija, rezervacije) {
@@ -173,7 +190,7 @@ function daLiJeTerminSlobodan(rezervacija, rezervacije) {
 
 }
 
-app.post('/kreirajRezervaciju', function(req, res) {
+/* app.post('/kreirajRezervaciju', function(req, res) {
 	let rezervacija = req.body;
 	let rezervacijeJSON = fs.readFileSync('zauzeca.json');
 	let rezervacije = JSON.parse(rezervacijeJSON);
@@ -213,7 +230,95 @@ app.post('/kreirajRezervaciju', function(req, res) {
 	fs.writeFileSync('zauzeca.json', JSON.stringify(rezervacije));
 
 	res.sendFile(__dirname + '/zauzeca.json');
+}); */
+
+ app.post('/kreirajRezervaciju', function(req, res) {
+	let rezervacija = req.body;
+
+	let redovnii = false; 
+
+ 	console.log(rezervacija); 
+// 	 if (daLiJeTerminSlobodan(rezervacija, rezervacijee)) { 
+	 	if (rezervacija['periodicna']) {
+			delete rezervacija['periodicna']; 
+//			rezervacije['periodicna'].push(rezervacija);
+		 redovnii = true;
+
+		 var listaRezervacija = [];
+			
+		 listaRezervacija.push(db.termin.create(
+			 {	
+				 redovni : redovnii,
+				 dan: rezervacija.dan,
+				 datum : 0,
+				 semestar : rezervacija.semestar,
+				 pocetak : rezervacija.pocetak,
+				 kraj : rezervacija.kraj,
+
+			 })
+		 );
+		} else {
+			let dan = parseInt(rezervacija['datum'].split('.')[0]);
+			let mjesec = parseInt(rezervacija.datum.substring(3,5));
+		/* 	 console.log(mjesec);
+			console.log(dan);
+			console.log(rezervacija.datum);  */
+			let semestaar = vratiSemestar(mjesec);
+			/*  console.log(semestaar);
+			console.log(rezervacija.pocetak);
+			console.log(rezervacija.kraj);  */
+			redovnii = false;
+			
+			var listaRezervacija = [];
+			
+			listaRezervacija.push(db.termin.create(
+				{	
+					redovni : redovnii,
+					dan: rezervacija.dan,
+					datum : rezervacija.datum,
+					semestar : semestaar,
+					pocetak : rezervacija.pocetak,
+					kraj : rezervacija.kraj,
+
+				})
+			);
+
+} 
+ 
+
+		
+		  /*  else {
+			let datum = '';
+			if (rezervacija['periodicna']) {
+			let dan = rezervacija['dan'];
+			datum = 'dan ' + dan + ' i semestar ' + rezervacija['semestar'];
+		} else {
+			datum = 'datum ' + rezervacija['datum'].split(".").join("/");
+		}
+
+		res.status(400).send({
+			message:
+				'“Nije moguće rezervisati salu ' +
+				rezervacija['naziv'] +
+				' za navedeni ' +
+				datum +
+				' i termin od ' +
+				rezervacija['pocetak'] +
+				' do ' +
+				rezervacija['kraj'] +
+				'!”'
+		});
+	}
+
+	fs.writeFileSync('zauzeca.json', JSON.stringify(rezervacije));
+
+	res.sendFile(__dirname + '/zauzeca.json');   */ 
 });
+
+
+
+
+
 
 app.get('/slike/:stranica', function(req, res) {
 	stranica = req.params.stranica;
@@ -222,6 +327,11 @@ app.get('/slike/:stranica', function(req, res) {
 		slike: images.slice((stranica - 1) * 3, stranica * 3),
 		brojStranica: Math.ceil(images.length / 3)
 	});
+});
+
+app.get('/dajOsoblje',function(req,res){
+
+	db.osoblje.findAll().then(osoblja => {res.send(osoblja); res.sendStatus(200)});
 });
 
 app.listen(8080, () => {

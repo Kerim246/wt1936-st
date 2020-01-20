@@ -163,7 +163,7 @@ let Kalendar = (function() {
 					ispisao++;
 
 					cell.addEventListener('click',function(event){
-						var datum  = new Date(godina,mjesec,this.id);
+						var datum  = new Date(godina,mjesec,this.id);  // id je dan
 						var pocetakTermina = document.getElementById('pocetak').value;
 						var krajTermina = document.getElementById('kraj').value;
 					
@@ -187,11 +187,13 @@ let Kalendar = (function() {
 								else{
 									rezervacija['datum']=formatirajDatum(datum);
 								}
+								
 								rezervacija['pocetak']=pocetakTermina;
 								rezervacija['kraj']=krajTermina;
 								rezervacija['naziv']=imeSale;
 								rezervacija['predavac']='Samir Ribić';
 								rezervacija['periodicna']=periodicnost
+
 								Pozivi.kreirajRezervaciju(rezervacija,function(rez){
 									Kalendar.ucitajPodatke(rez.periodicna, rez.vanredna);
 									osvjeziSale();
@@ -244,6 +246,13 @@ window.onload = function() {
 			osvjeziSale()
 		}
 	}
+
+	var x = document.getElementById("polje");
+
+	/* Pozivi.dajOsoblje(function(rez){
+		let rez = 
+	}) */
+
 
 };
 

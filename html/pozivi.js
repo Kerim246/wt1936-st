@@ -55,11 +55,26 @@ let Pozivi = (function() {
         xhttp.send();
     }
 
+    function dajOsoblje(fnCallback){
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200){
+                let rez = osoblje.findAll(xhttp.responseText);
+                fnCallback(rez);
+            }
+        }
+
+        xhttp.open('GET','http://localhost:8080/dajOsoblje',true);
+        xhttp.send();
+    }
+
 
     return {
         dajRezervacije:dajRezervacije,
         kreirajRezervaciju:kreirajRezervaciju,
-        dajSlike:dajSlike
+        dajSlike:dajSlike,
+        dajOsoblje:dajOsoblje
     }
 }());
 
