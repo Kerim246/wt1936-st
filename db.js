@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 
-const connection = new Sequelize('dbwt19','root','',{
+const connection = new Sequelize('DBWT19','root','root',{
     dialect: 'mysql',
     define: {
         timestamps: false
