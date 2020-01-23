@@ -1,0 +1,21 @@
+{
+    "vanredna": [
+        {
+            "pocetak": "12:00:00",
+            "kraj": "13:00:00",
+            "naziv": "1-11",
+            "predavac": "Neko Nekic profesor",
+            "datum": "01.01.2020"
+        }
+    ],
+    "periodicna": [
+        {
+            "pocetak": "13:00:00",
+            "kraj": "14:00:00",
+            "naziv": "1-11",
+            "predavac": "Test Test asistent",
+            "dan": 0,
+            "semestar": "zimski"
+        }
+    ]
+}

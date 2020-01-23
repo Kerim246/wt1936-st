@@ -1,12 +1,12 @@
 const Sequelize = require('sequelize');
 
 
-const connection = new Sequelize('dbwt19','root','root',{
+const connection = new Sequelize('dbwt19','root','',{
     dialect: 'mysql',
     define: {
         timestamps: false
       },
-      logging: false
+      logging:false
 });
 
 const db = {};
@@ -19,12 +19,32 @@ db.sala = connection.import(__dirname+'/sala.js');
 db.termin = connection.import(__dirname+'/termin.js');
 db.rezervacija = connection.import(__dirname+'/rezervacija.js');
 
-db.osoblje.hasMany(db.rezervacija,{foreignKey:'osoba'});
+/* db.osoblje.hasMany(db.rezervacija,{foreignKey:'osoba'});
 db.termin.hasOne(db.rezervacija,{foreignKey:'termin'})
 db.sala.hasMany(db.rezervacija, {foreignKey:'sala'});
-db.osoblje.hasOne(db.sala,{foreignKey:'zaduzenaOsoba'});
+db.osoblje.hasOne(db.sala,{foreignKey:'zaduzenaOsoba'}); */
 
-db.connection.sync().then(function(){   // Napravi sve tabele odjednom,pa onda puni tabelu po tabelu
+db.rezervacija.belongsTo(db.termin,{foreignKey:'termin',targetKey:'id',as: 'rezervisaniTermin'});
+db.termin.hasOne(db.rezervacija,{foreignKey:'termin',sourceKey:'id',as: 'rezervisaniTermin'});
+
+db.sala.belongsTo(db.osoblje,{foreignKey:'zaduzenaOsoba',targetKey:'id',as:'OsobaZaduzena'});
+db.osoblje.hasOne(db.sala,{foreignKey:'zaduzenaOsoba',sourceKey:'id',as:'OsobaZaduzena'});
+
+db.sala.hasMany(db.rezervacija,{foreignKey:'sala',targetKey:'id',as:'rezervisanaSala'});
+db.rezervacija.belongsTo(db.sala,{foreignKey:'sala',sourceKey:'id',as:'rezervisanaSala'});
+
+db.osoblje.hasMany(db.rezervacija,{foreignKey:'osoba',targetKey:'id',as:'rezOsoba'});
+db.rezervacija.belongsTo(db.osoblje,{foreignKey:'osoba',sourceKey:'id',as:'rezOsoba'});
+
+
+/* db.sala.belongsTo(db.osoblje,{as:'osobaZaSalu',foreignKey: 'zaduzenaOsoba'});
+db.rezervacija.belongsTo(db.termin,{as: 'rezervisaniTermin',foreignKey:'termin'});
+db.osoblje.hasMany(db.rezervacija,{as:'osobljeRezervacije'});
+db.rezervacija.belongsTo(db.osoblje,{foreignKey:'osoba',as:'rezervacijaOsoblja'});
+db.sala.hasMany(db.rezervacija,{as:'rezervacijeSale'});
+db.rezervacija.belongsTo(db.sala,{as:'salaRezervisana',foreignKey: 'sala'}); */
+
+db.connection.sync({force:true}).then(function(){   // Napravi sve tabele odjednom,pa onda puni tabelu po tabelu
   db.osoblje.bulkCreate([
     {
         ime : 'Neko',
@@ -88,6 +108,16 @@ db.connection.sync().then(function(){   // Napravi sve tabele odjednom,pa onda p
       })
     })
   });
+
+
+
+/*   connection.query('SELECT * FROM osoblje', db.osoblje).then(function(osobe){
+    console.log(osobe);
+  })
+
+  connection.query('SELECT * FROM rezervacija', db.rezervacija).then(function(rez){
+    console.log(rez);
+  }) */
 
 
 module.exports = db;

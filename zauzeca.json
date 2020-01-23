@@ -1,2 +1,73 @@
-{"vanredna":[{"datum":"17.12.2019","pocetak":"12:00","kraj":"13:00","naziv":"0-01","predavac":"Samir Ribić"},{"datum":"18.12.2019","pocetak":"12:00","kraj":"13:00","naziv":"0-01","predavac":"Zeljko Juric"},{"datum":"07.12.2019","pocetak":"12:30","kraj":"14:00","naziv":"0-01","predavac":"Vensada"},{"datum":"06.12.2019","pocetak":"12:30","kraj":"14:00","naziv":"0-01","predavac":"Neam pojma"},{"datum":"06.12.2019","pocetak":"09:00","kraj":"12:00","naziv":"0-01","predavac":"Dzenana Djonko"}],
-"periodicna":[{"dan":4,"semestar":"zimski","pocetak":"12:00","kraj":"13:00","naziv":"0-01","predavac":"Samir Ribić"},{"dan":6,"semestar":"zimski","pocetak":"12:00","kraj":"13:00","naziv":"0-01","predavac":"Zeljko Juric"},{"dan":1,"semestar":"zimski","pocetak":"12:00","kraj":"13:00","naziv":"0-01","predavac":"Neam Pojma"},{"dan":1,"semestar":"zimski","pocetak":"11:00","kraj":"12:00","naziv":"0-01","predavac":"Fahrudin"}]}
+{
+    "vanredna": [
+        {
+            "datum": "17.12.2019",
+            "pocetak": "12:00",
+            "kraj": "13:00",
+            "naziv": "0-01",
+            "predavac": "Samir Ribić"
+        },
+        {
+            "datum": "18.12.2019",
+            "pocetak": "12:00",
+            "kraj": "13:00",
+            "naziv": "0-01",
+            "predavac": "Zeljko Juric"
+        },
+        {
+            "datum": "07.12.2019",
+            "pocetak": "12:30",
+            "kraj": "14:00",
+            "naziv": "0-01",
+            "predavac": "Vensada"
+        },
+        {
+            "datum": "06.12.2019",
+            "pocetak": "12:30",
+            "kraj": "14:00",
+            "naziv": "0-01",
+            "predavac": "Neam pojma"
+        },
+        {
+            "datum": "06.12.2019",
+            "pocetak": "09:00",
+            "kraj": "12:00",
+            "naziv": "0-01",
+            "predavac": "Dzenana Djonko"
+        }
+    ],
+    "periodicna": [
+        {
+            "dan": 4,
+            "semestar": "zimski",
+            "pocetak": "12:00",
+            "kraj": "13:00",
+            "naziv": "0-01",
+            "predavac": "Samir Ribić"
+        },
+        {
+            "dan": 6,
+            "semestar": "zimski",
+            "pocetak": "12:00",
+            "kraj": "13:00",
+            "naziv": "0-01",
+            "predavac": "Zeljko Juric"
+        },
+        {
+            "dan": 1,
+            "semestar": "zimski",
+            "pocetak": "12:00",
+            "kraj": "13:00",
+            "naziv": "0-01",
+            "predavac": "Neam Pojma"
+        },
+        {
+            "dan": 1,
+            "semestar": "zimski",
+            "pocetak": "11:00",
+            "kraj": "12:00",
+            "naziv": "0-01",
+            "predavac": "Fahrudin"
+        }
+    ]
+}

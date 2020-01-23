@@ -60,7 +60,7 @@ let Pozivi = (function() {
 
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200){
-                let rez = osoblje.findAll(xhttp.responseText);
+                let rez = JSON.parse(xhttp.responseText);
                 fnCallback(rez);
             }
         }

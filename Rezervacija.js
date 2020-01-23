@@ -5,7 +5,7 @@ var Rezervacija = sequelize.define('rezervacija', {
     termin : {
         type : Sequelize.INTEGER,
         references : {
-        model : 'Termin',   
+        model : 'termin',   
         referencesKey: 'id',
         unique : true
         }

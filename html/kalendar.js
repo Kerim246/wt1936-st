@@ -13,7 +13,7 @@ let Kalendar = (function() {
 
 	function vratiSemestar(mjesec){
 		if ( mjesec >= 2 && mjesec <= 6) return 'ljetni';
-		if ( (mjesec >= 10 || mjesec === 1)) return 'zimski';
+		if ( (mjesec >= 10 || mjesec === 0)) return 'zimski';
 	}
 	function formatirajDatum(date) {
 		var day = date.getDate();
@@ -65,7 +65,7 @@ let Kalendar = (function() {
 	function obojiStalne(kalendarRef, termin) {
 		for (var i = 1; i < kalendarRef.rows.length; i++) {
 			console.log("TERMIN DAN",termin.dan)
-			kalendarRef.rows[i].cells[termin.dan-1].className = 'zauzeta';
+			kalendarRef.rows[i].cells[termin.dan].className = 'zauzeta';
 		}
 	}
 
@@ -175,12 +175,16 @@ let Kalendar = (function() {
 							var izbor = confirm("Da li zelite dodati termin?")
 							if(izbor){
 								var imeSale = document.getElementById('sale').value;
-							
+
+								var polje = document.getElementById("polje");
+								var selektovanaOsoba = polje.options[polje.selectedIndex].id;
+
 								var periodicnost = document.getElementById('periodicnost').checked;
 								var rezervacija={}
 								if(periodicnost){
-									var dan = datum.getDay();
-									if(dan==0)dan=7;
+									var dan = (datum.getDay()+6)%7;
+								
+									
 									rezervacija['dan']=dan;
 									rezervacija['semestar']=vratiSemestar(mjesec);
 								}
@@ -192,11 +196,17 @@ let Kalendar = (function() {
 								rezervacija['kraj']=krajTermina;
 								rezervacija['naziv']=imeSale;
 								rezervacija['predavac']='Samir Ribić';
-								rezervacija['periodicna']=periodicnost
+								rezervacija['periodicna']=periodicnost;
+								rezervacija['osoba']=selektovanaOsoba;
 
 								Pozivi.kreirajRezervaciju(rezervacija,function(rez){
-									Kalendar.ucitajPodatke(rez.periodicna, rez.vanredna);
-									osvjeziSale();
+									if(rez.message){
+										console.log("PREKLAPANJE:",rez.message)
+									}
+									if(rez.periodicna || rez.vanredna){
+										Kalendar.ucitajPodatke(rez.periodicna, rez.vanredna);
+										osvjeziSale();
+									}
 								},
 								function(message){alert(message)})
 							}
@@ -247,11 +257,7 @@ window.onload = function() {
 		}
 	}
 
-	var x = document.getElementById("polje");
-
-	/* Pozivi.dajOsoblje(function(rez){
-		let rez = 
-	}) */
+	selectPolje();
 
 
 };
@@ -283,5 +289,18 @@ function osvjeziSale() {
 	var pocetakTermina = document.getElementById('pocetak').value;
 	var krajTermina = document.getElementById('kraj').value;
 	Kalendar.obojiZauzeca(kalendar, mjesec, imeSale, pocetakTermina, krajTermina);
+}
+
+function selectPolje(){
+	var polje = document.getElementById("polje");
+	Pozivi.dajOsoblje(function(rez){
+		for(let i = 0 ; i<rez.length ; i++){
+		let option = document.createElement("option");
+		option.id = rez[i].id;
+		option.value = rez[i].ime + ' ' + rez[i].prezime;
+		option.text = rez[i].ime + ' ' + rez[i].prezime;
+		polje.appendChild(option);
+	}
+	});
 }
 
